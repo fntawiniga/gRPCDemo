@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Demo";
+
+package KidsCharacters;
+
+service Characters {
+	rpc GetCharacter (CharacterRequest) returns (CharacterResponse);
+}
+
+message Character {
+	int32 Id = 1;
+	string FirstName = 2;
+	string LastName = 3;
+	string Show = 4;
+}
+
+message CharacterRequest {
+	int32 id = 1;
+}
+
+message CharacterResponse {
+	Character character = 1;
+}

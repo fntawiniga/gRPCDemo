@@ -75,46 +75,66 @@ namespace Demo {
       get { return global::Demo.CharacterReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Characters</summary>
-    [grpc::BindServiceMethod(typeof(Characters), "BindService")]
-    public abstract partial class CharactersBase
+    /// <summary>Client for Characters</summary>
+    public partial class CharactersClient : grpc::ClientBase<CharactersClient>
     {
-      public virtual global::System.Threading.Tasks.Task<global::Demo.CharacterResponse> GetCharacter(global::Demo.CharacterRequest request, grpc::ServerCallContext context)
+      /// <summary>Creates a new client for Characters</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      public CharactersClient(grpc::ChannelBase channel) : base(channel)
       {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+      /// <summary>Creates a new client for Characters that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      public CharactersClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      protected CharactersClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      protected CharactersClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
       }
 
-      public virtual global::System.Threading.Tasks.Task SearchCharacters(global::Demo.SearchRequest request, grpc::IServerStreamWriter<global::Demo.CharacterResponse> responseStream, grpc::ServerCallContext context)
+      public virtual global::Demo.CharacterResponse GetCharacter(global::Demo.CharacterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+        return GetCharacter(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-
-      public virtual global::System.Threading.Tasks.Task<global::Demo.SumResponse> DoSum(grpc::IAsyncStreamReader<global::Demo.SumRequest> requestStream, grpc::ServerCallContext context)
+      public virtual global::Demo.CharacterResponse GetCharacter(global::Demo.CharacterRequest request, grpc::CallOptions options)
       {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+        return CallInvoker.BlockingUnaryCall(__Method_GetCharacter, null, options, request);
       }
-
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(CharactersBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetCharacter, serviceImpl.GetCharacter)
-          .AddMethod(__Method_SearchCharacters, serviceImpl.SearchCharacters)
-          .AddMethod(__Method_DoSum, serviceImpl.DoSum).Build();
-    }
-
-    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
-    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
-    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, CharactersBase serviceImpl)
-    {
-      serviceBinder.AddMethod(__Method_GetCharacter, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Demo.CharacterRequest, global::Demo.CharacterResponse>(serviceImpl.GetCharacter));
-      serviceBinder.AddMethod(__Method_SearchCharacters, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Demo.SearchRequest, global::Demo.CharacterResponse>(serviceImpl.SearchCharacters));
-      serviceBinder.AddMethod(__Method_DoSum, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::Demo.SumRequest, global::Demo.SumResponse>(serviceImpl.DoSum));
+      public virtual grpc::AsyncUnaryCall<global::Demo.CharacterResponse> GetCharacterAsync(global::Demo.CharacterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetCharacterAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Demo.CharacterResponse> GetCharacterAsync(global::Demo.CharacterRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetCharacter, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Demo.CharacterResponse> SearchCharacters(global::Demo.SearchRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SearchCharacters(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Demo.CharacterResponse> SearchCharacters(global::Demo.SearchRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_SearchCharacters, null, options, request);
+      }
+      public virtual grpc::AsyncClientStreamingCall<global::Demo.SumRequest, global::Demo.SumResponse> DoSum(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DoSum(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncClientStreamingCall<global::Demo.SumRequest, global::Demo.SumResponse> DoSum(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncClientStreamingCall(__Method_DoSum, null, options);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override CharactersClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new CharactersClient(configuration);
+      }
     }
 
   }

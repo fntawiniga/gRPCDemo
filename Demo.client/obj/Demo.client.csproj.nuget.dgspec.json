@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.client\\Demo.client.csproj": {}
+    "C:\\Dev\\WORK\\gRPCDemo\\Demo.client\\Demo.client.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.client\\Demo.client.csproj": {
+    "C:\\Dev\\WORK\\gRPCDemo\\Demo.client\\Demo.client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.client\\Demo.client.csproj",
+        "projectUniqueName": "C:\\Dev\\WORK\\gRPCDemo\\Demo.client\\Demo.client.csproj",
         "projectName": "Demo.client",
-        "projectPath": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.client\\Demo.client.csproj",
+        "projectPath": "C:\\Dev\\WORK\\gRPCDemo\\Demo.client\\Demo.client.csproj",
         "packagesPath": "C:\\Users\\ntfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.client\\obj\\",
+        "outputPath": "C:\\Dev\\WORK\\gRPCDemo\\Demo.client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ntfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,26 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "Grpc.Net.ClientFactory": {
+              "target": "Package",
+              "version": "[2.32.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.32.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

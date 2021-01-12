@@ -25,5 +25,28 @@ namespace Demo.Server
             var character = Characters.FirstOrDefault(i => i.Id == request.Id);
             return Task.FromResult(new CharacterResponse { Character = character }) ;
         }
+
+        public override async Task SearchCharacters(SearchRequest request, IServerStreamWriter<CharacterResponse> responseStream, ServerCallContext context)
+        {
+            var results = Characters.Where(c => c.Show.Contains(request.Query, StringComparison.CurrentCultureIgnoreCase));
+
+            foreach(var result in results)
+            {
+                await responseStream.WriteAsync(new CharacterResponse { Character = result });
+                await Task.Delay(1500);
+            }
+        }
+
+        public override async Task<SumResponse> DoSum(IAsyncStreamReader<SumRequest> requestStream, ServerCallContext context)
+        {
+            int count = 0;
+            await foreach (var request in requestStream.ReadAllAsync())
+            {
+                count += request.Value;
+                Console.WriteLine($"Received number {request.Value}. Total is {count}");
+            }
+
+            return new SumResponse { Total = count };
+        }
     }
 }

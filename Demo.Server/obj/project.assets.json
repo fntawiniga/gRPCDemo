@@ -698,11 +698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.Server\\Demo.Server.csproj",
+      "projectUniqueName": "c:\\Dev\\WORK\\gRPCDemo\\Demo.Server\\Demo.Server.csproj",
       "projectName": "Demo.Server",
-      "projectPath": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.Server\\Demo.Server.csproj",
+      "projectPath": "c:\\Dev\\WORK\\gRPCDemo\\Demo.Server\\Demo.Server.csproj",
       "packagesPath": "C:\\Users\\ntfre\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\WORK\\gRPCDemo\\gRPCDemo\\Demo.Server\\obj\\",
+      "outputPath": "c:\\Dev\\WORK\\gRPCDemo\\Demo.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ntfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
